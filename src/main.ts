@@ -12,12 +12,13 @@ async function bootstrap() {
     .addTag('#Vehicles,#Users,#Booking')
     .build();
 
-    const document = SwaggerModule.createDocument(app, config);
+  const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('vms', app, document);
 
-  await app.listen(process.env.PORT || 3000, () => {
-    console.log('Listening on port ===>>> %s', 4007);
+  const port = process.env.PORT || 3000;
+  app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
   });
-  
+
 }
 bootstrap();
