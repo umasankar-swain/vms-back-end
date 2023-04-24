@@ -11,10 +11,7 @@ export class VehiclModel {
   @Prop({ required: true })
   modelName: string;
 
-  // @Prop({ type: String })
-  // vehicleTypeCategory: string;
-
-  @Prop({ ref: 'VehicleType' })
+  @Prop({ type: String })
   vehicleTypeCategory: string;
 
   @Prop({ type: String, ref: 'VehicleType' })

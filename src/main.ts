@@ -4,6 +4,7 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.enableCors();
   const config = new DocumentBuilder()
     .setTitle('vehicle-booking-system-backend API')
     .setDescription('This is a Task based project')

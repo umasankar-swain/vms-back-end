@@ -29,12 +29,18 @@ export class VehicleTypeService {
   }
 
   async findBikeTypes(): Promise<string[]> {
-    const vehicleTypes = await this.vehicleTypeModel.findOne().exec();
-    if (!vehicleTypes) {
+    const vehicleTypes = await this.vehicleTypeModel.findOne({ category: 'bikes' }).exec();
+    if (!vehicleTypes) { 
       throw new NotFoundException('Vehicle types not found');
     }
     return vehicleTypes.bikeTypes;
   }
+  
+  
+  
+
+
+
 
 
   async createDefaultVehicleType(): Promise<void> {
@@ -63,5 +69,5 @@ export class VehicleTypeService {
       };
       await this.vehicleTypeModel.create(bikeVehicleType);
     }
-  } 
+  }
 }
