@@ -15,7 +15,7 @@ async function bootstrap() {
     const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('vms', app, document);
 
-  await app.listen(4007, () => {
+  await app.listen(process.env.PORT || 3000, () => {
     console.log('Listening on port ===>>> %s', 4007);
   });
   
